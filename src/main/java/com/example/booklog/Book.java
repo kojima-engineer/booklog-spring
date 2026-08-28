@@ -2,12 +2,15 @@ package com.example.booklog;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 @Entity
 public class Book {
 
-    @Id
-    private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
     private String title;
     private String author;
     private String memo;
@@ -38,6 +41,10 @@ public class Book {
         return memo;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public void setTitle(String title) {
         this.title = title;
     }

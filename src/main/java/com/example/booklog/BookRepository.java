@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class BookRepository {
 
-    private List<Book> books = new ArrayList<>();
+	private List<Book> books = new ArrayList<>();
+	private int nextId = 4;
 
     public BookRepository() {
         books.add(new Book(1, "嫌われる勇気", "岸見一郎", "自己啓発"));
@@ -20,6 +21,9 @@ public class BookRepository {
     }
 
     public Book save(Book book) {
+        book.setId(nextId);
+        nextId++;
+
         books.add(book);
         return book;
     }
